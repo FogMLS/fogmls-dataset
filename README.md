@@ -1,63 +1,68 @@
 # FogMLS Dataset
 
-A labeled dataset for machine learning based resource scheduling 
-in heterogeneous IoT-fog-cloud computing systems.
+A labeled dataset for resource scheduling in heterogeneous 
+IoT-fog-cloud computing systems.
 
 ## About
 
 FogMLS is a labeled dataset containing pre-execution task features 
-and optimizer-derived node assignment labels generated using a 
-genetic algorithm scheduler across heterogeneous fog and cloud nodes. 
-The dataset supports the development and evaluation of supervised 
-machine learning models for IoT task scheduling.
+and optimizer-derived node assignment labels generated using a genetic 
+algorithm scheduler across three heterogeneous fog nodes and a cloud 
+server. The dataset covers three load scenarios (low, medium, high) 
+and supports supervised machine learning, reinforcement learning 
+initialisation, and reproducible benchmarking for IoT task scheduling.
 
 ## Dataset Download
 
 Available on Zenodo (open access):  
-DOI: 10.5281/zenodo.19382240
+DOI: PENDING
 
 ## Repository Contents
 
-- `data_loader.py` — loads dataset and prepares train/test split
-- `train.py` — trains the deep learning scheduling model
-- `evaluate.py` — produces F1 and accuracy results
-- `figures.py` — generates all figures
-- `requirements.txt` — Python dependencies
+- `DL_pipeline.py` — trains the deep learning validation model
+- `comprehensive_validation.py` — baseline comparison and ROC/PR curves
+- `sanity_check.py` — permutation test and majority baseline checks
+- `verify_dataset.py` — structural integrity checks
+- `diagnose_features.py` — feature separability analysis
+- `model_arch.py` — shared model architecture definition
+- `config.py` — simulation configuration (3x9 high load scenario)
 
 ## How to Use
 
-1. Download the dataset from Zenodo and place it in the same folder as the scripts
+1. Download the dataset from Zenodo and place it in the same folder
 2. Install dependencies:
+
 ```bash
-pip install -r requirements.txt
-```
-3. Train the model:
-```bash
-python train.py fogmls_dataset_seed42.txt
-```
-4. Evaluate results:
-```bash
-python evaluate.py fogmls_dataset_seed42.txt
-```
-5. Generate figures:
-```bash
-python figures.py fogmls_dataset_seed42.txt
+pip install tensorflow==2.20.0 keras==3.11.3 numpy==2.2.6 scikit-learn==1.7.1 matplotlib
 ```
 
-**Run order matters:** train.py must run first.
-evaluate.py and figures.py depend on files saved by train.py.
+3. Train the model:
+
+```bash
+python DL_pipeline.py fogmls_dataset_3x9_seed42_5000slots.csv
+```
+
+4. Run validation:
+
+```bash
+python comprehensive_validation.py fogmls_dataset_3x9_seed42_5000slots.csv
+python sanity_check.py fogmls_dataset_3x9_seed42_5000slots.csv
+```
+
+**Run order matters:** `DL_pipeline.py` must run first. 
+`comprehensive_validation.py` and `sanity_check.py` depend on 
+the weights file saved by `DL_pipeline.py`.
 
 ## Requirements
 
-Python 3.10, TensorFlow 2.20.0, Keras 3.11.3, 
+Python 3.10, TensorFlow 2.20.0, Keras 3.11.3,  
 NumPy 2.2.6, scikit-learn 1.7.1, matplotlib 3.10.8
 
 ## References
 
-Harry John and Manjula Shenoy K, A Labeled Dataset for 
-Machine Learning Based Resource Scheduling in Heterogeneous 
-IoT-Fog-Cloud Systems, Scientific Data (Nature Portfolio), 
-under review.
+Harry John and Manjula Shenoy K, A Labeled Dataset for Resource 
+Scheduling in Heterogeneous IoT-Fog-Cloud Computing Systems, 
+Scientific Data (Nature Portfolio), under review.
 
 ## License
 
