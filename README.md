@@ -36,7 +36,7 @@ No GPU is required; all scripts run on CPU.
 ## Getting the data
 
 Download the three deposited datasets from Zenodo
-(https://doi.org/10.5281/zenodo.19851852) before running any script here:
+(https://doi.org/10.5281/zenodo.22762150) before running any script here:
 - `fogmls_dataset_3x3_seed42_5000slots.csv` (low load)
 - `fogmls_dataset_3x6_seed42_5000slots.csv` (medium load)
 - `fogmls_dataset_3x9_seed42_5000slots.csv` (high load, primary dataset)
