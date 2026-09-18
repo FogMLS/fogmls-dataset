@@ -6,7 +6,7 @@ heterogeneous IoT-fog-cloud computing systems"* (submitted to *Scientific
 Data*).
 
 The deposited datasets themselves are hosted separately on Zenodo:
-**https://doi.org/10.5281/zenodo.19851852**
+**https://doi.org/10.5281/zenodo.22762150**
 
 ## What this repository contains
 
