@@ -78,6 +78,13 @@ Compares classification accuracy on actuation tasks (zero instruction
 count) against regular tasks, to check that Label 0 padding and
 actuation tasks are not being conflated in evaluation.
 
+### `zero_shot_transfer_test.py`
+Loads the already-trained Random Forest model (no retraining) and 
+evaluates it on a dataset generated with a different task profile, to 
+test whether learned scheduling patterns transfer to a different 
+application domain. Requires a comparable dataset generated with a 
+different task profile.
+
 ### `convert_formats.py`
 Example utility functions converting the fixed-width tabular dataset
 format into two alternative representations that may be more convenient
@@ -87,14 +94,6 @@ for certain machine learning approaches:
 - **Per-slot bipartite graph**: a `networkx` graph with task nodes
   connected to the resource node (Cloud, Fog-1, Fog-2, Fog-3) they were
   assigned to, useful for graph-based ML approaches (e.g. GNNs).
-
-### `zero_shot_transfer_test.py`
-Loads the already-trained Random Forest model (no retraining) and 
-evaluates it on a dataset generated with a different task profile, to 
-test whether learned scheduling patterns transfer to a different 
-application domain. Requires a comparable dataset generated with a 
-different task profile.
-
 
 ```
 python3 convert_formats.py fogmls_dataset_3x9_seed42_5000slots.csv
