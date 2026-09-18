@@ -88,6 +88,14 @@ for certain machine learning approaches:
   connected to the resource node (Cloud, Fog-1, Fog-2, Fog-3) they were
   assigned to, useful for graph-based ML approaches (e.g. GNNs).
 
+### `zero_shot_transfer_test.py`
+Loads the already-trained Random Forest model (no retraining) and 
+evaluates it on a dataset generated with a different task profile, to 
+test whether learned scheduling patterns transfer to a different 
+application domain. Requires a comparable dataset generated with a 
+different task profile.
+
+
 ```
 python3 convert_formats.py fogmls_dataset_3x9_seed42_5000slots.csv
 ```
